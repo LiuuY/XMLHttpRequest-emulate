@@ -1,0 +1,35 @@
+{
+  "name": "rn-xmlhttprequest-ts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "rollup -c --environment PRODUCTION",
+    "test": "jest"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "base64-js": "^1.3.1",
+    "event-target-shim": "^5.0.1",
+    "fbjs": "^2.0.0",
+    "invariant": "^2.2.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.3.4",
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/preset-env": "^7.3.4",
+    "@babel/preset-typescript": "^7.3.3",
+    "@rollup/plugin-commonjs": "^15.0.0",
+    "@rollup/plugin-node-resolve": "^9.0.0",
+    "@rollup/plugin-replace": "^2.3.3",
+    "@types/base64-js": "^1.3.0",
+    "@types/jest": "^24.0.11",
+    "babel-jest": "^24.5.0",
+    "jest": "^26.4.2",
+    "prettier": "^2.1.1",
+    "rollup": "^1.3.2",
+    "rollup-plugin-typescript2": "^0.19.0",
+    "typescript": "^3.3.3333"
+  }
+}

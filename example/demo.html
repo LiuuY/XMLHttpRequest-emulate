@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="../dist/XMLHttpRequest.js"></script>
+    <script>
+      XMLHttpRequest = XMLHttpRequestEmulate.XMLHttpRequest;
+    </script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>XMLHttpRequest Demo</title>
+  </head>
+  <body>
+    <div>
+      <input id="uploadInput" type="file" name="myFiles" multiple />
+      selected files: <span id="fileNum">0</span>; total size:
+      <span id="fileSize">0</span>
+    </div>
+    <div><button onclick="send()">Send file</button></div>
+    <img id="image" />
+
+    <script>
+      var url =
+        'https://web-apps-artifactory.vercel.app/images/big-pic2-2c3620ae44.jpg';
+      var request = new XMLHttpRequest();
+      request.open('GET', url);
+      request.responseType = 'arraybuffer';
+      request.send(null);
+
+      function _imageEncode(arrayBuffer) {
+        let u8 = new Uint8Array(arrayBuffer);
+        let b64encoded = btoa(
+          [].reduce.call(
+            new Uint8Array(arrayBuffer),
+            function (p, c) {
+              return p + String.fromCharCode(c);
+            },
+            ''
+          )
+        );
+        let mimetype = 'image/jpeg';
+        return 'data:' + mimetype + ';base64,' + b64encoded;
+      }
+
+      request.onload = function () {
+        request.response.arrayBuffer().then((buffer) => {
+          let d = _imageEncode(buffer);
+          console.log(d);
+        });
+      };
+    </script>
+  </body>
+</html>
