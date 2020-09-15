@@ -14,6 +14,17 @@ export default {
       format: 'iife',
       sourcemap: true,
     },
+    {
+      file: 'dist/XMLHttpRequest.mjs.js',
+      format: 'es',
+      sourcemap: true,
+    },
+    {
+      file: 'dist/XMLHttpRequest.umd.js',
+      name: 'XMLHttpRequestEmulate',
+      format: 'umd',
+      sourcemap: true,
+    },
   ],
   plugins: [
     typescript({
